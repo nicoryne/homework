@@ -1,7 +1,7 @@
 #include<math.h>
 
-long long int OctalConversion :: octalToDecimal (int octal) {
-		long long int result = 0;
+int OctalConversion :: octalToDecimal (int octal) {
+		int result = 0;
 		int base = 0, rem;
 			
 		while(octal != 0) {
@@ -13,11 +13,11 @@ long long int OctalConversion :: octalToDecimal (int octal) {
 	return result;
 };
 
-long long int OctalConversion :: octalToBaseN (int octal, int n) {
+int OctalConversion :: octalToBaseN (int octal, int n) {
 	if(n == 10) {
 	 return octalToDecimal(octal);
 	}
-	long long int decimal = octalToDecimal(octal);
+	int decimal = octalToDecimal(octal);
 	return decimalToBaseN(decimal, n);
 }
 		
@@ -47,8 +47,8 @@ std::string OctalConversion :: octalToHex (int octal) {
 	return hex;
 };
 
-long long int OctalConversion :: decimalToBaseN (int decimal, int n) {
-		long long int result = 0;
+int OctalConversion :: decimalToBaseN (int decimal, int n) {
+		int result = 0;
 		int product = 1, rem;
 			
 		while(decimal != 0) {

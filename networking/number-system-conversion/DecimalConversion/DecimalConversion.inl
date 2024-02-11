@@ -1,7 +1,7 @@
 
 
-long long int DecimalConversion :: decimalToBaseN (int decimal, int n) {
-		long long int result = 0;
+int DecimalConversion :: decimalToBaseN (int decimal, int n) {
+		int result = 0;
 		int product = 1, rem;
 			
 		while(decimal != 0) {

@@ -4,9 +4,9 @@
 class OctalConversion {
 	
 	public:
-		int decimalToBaseN (int decimal, int n);
-		int octalToBaseN (int decimal, int n);
-		int octalToDecimal(int octal);
+		virtual int decimalToBaseN (int decimal, int n);
+		virtual int octalToBaseN (int decimal, int n);
+		virtual int octalToDecimal(int octal);
 		virtual std::string octalToHex (int octal);
 	
 };

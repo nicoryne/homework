@@ -3,7 +3,7 @@
 
 A collection of random stuff
 
-##TODO
+## TODO
 
 - continue arraylist implementation
 - cover examples for OOP principles

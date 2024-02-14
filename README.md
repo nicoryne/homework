@@ -13,4 +13,8 @@ A collection of random stuff
 
 - Data Structures & Algorithms
 - Networking
+<<<<<<< Updated upstream
 - OOP
+=======
+- Object-Oriented Programming
+>>>>>>> Stashed changes

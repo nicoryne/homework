@@ -1,6 +1,6 @@
 [Project]
-FileName=cyclic-redundancy-check.dev
-Name=cyclic-redundancy-check
+FileName=SubnetMaskFinder.dev
+Name=SubnetMaskFinder
 Type=1
 Ver=2
 ObjFiles=
@@ -51,7 +51,7 @@ AutoIncBuildNr=0
 SyncProduct=1
 
 [Unit1]
-FileName=crcFunctions.h
+FileName=SubnetMaskFinder.h
 CompileCpp=1
 Folder=
 Compile=1
@@ -61,7 +61,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit2]
-FileName=crcFunctions.inl
+FileName=SubnetMaskFinder.inl
 CompileCpp=1
 Folder=
 Compile=1

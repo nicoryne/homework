@@ -31,7 +31,8 @@ if __name__ == '__main__':
     while True:
         system('cls')
         given_decimal = rd.randint(1, 255)
-        print("Decimal:", given_decimal)
+        print("You have 10 seconds to convert the given decimal to binary.")
+        print("\nDecimal:", given_decimal)
         
         countdown_thread = th.Thread(target=countdown)
         countdown_thread.start()

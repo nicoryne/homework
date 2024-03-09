@@ -7,46 +7,31 @@
     <title>Login - Activity 3</title>
 </head>
 <body>
-
-    <nav container="nav-container">
-        <div class="nav-inner">
-            <div class="left-col">
-                <img alt="Medicall Logo" src="">
-                <span> Medicall</span>
-            </div>
-            <div class="right-col">
-                <ul>
-                    <a class="active" href="index.html"><li>Home</li></a>
-                    <a class="" href="equipments.html"><li>Equipments</li></a>
-                    <a class="" href="index.html"><li>About Us</li></a>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
     <div class="wrapper">
-        <div class="form-container">
-            <form action="POST">
 
-                <div class="input-container login">
-                    <label for="uname">Username</label>
-                    <input type="text" placeholder="example@gmail.com" name="uname" required>
+        <nav class="header-navigation">
+            <img src="img/logo-header-dark.svg" class="logo">
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="equipments.html" class="">Equipments</a></li>
+                <li><a href="about.html" class="">About Us</a></li>
+            </ul>
+        </nav>
 
-                    <label for="password">Password</label>
-                    <input type="password" name="password" required>
+        <div class="content justify-center">
+            <div class="form-container">
+                <form action="POST" class="login">
+                    <label for="uname" class="lbl-mod-1">Username</label>
+                    <input type="text" id="uname" class="inpt-mod-1 check-valid" required>
 
-                    <button class="btn-mod-1 login-submit" type="submit">LOG IN</button>
+                    <label for="password" class="lbl-mod-1">Password</label>
+                    <input type="password" id="password" class="inpt-mod-1 check-valid" required>
 
-                    <div class="register-message-container">
-                        <span>Don't have an account?&nbsp <a href="register.html">Register here.</a></span>
-                    </div>
-                </div>
-            </form>
+                    <button class="btn-mod-1 raise raise-red" type="submit">Log In</button>
+                    <span>Don't have an account?<a href="register.html" class="hyp-mod-1">&nbsp; Register here.</a></span>
+                </form>
+            </div>
         </div>
     </div>
-
-    <footer>
-        <span>Copyright @ Medicall. All rights reserved.</span>
-    </footer>
 </body>
 </html>

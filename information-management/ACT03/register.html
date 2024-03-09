@@ -7,47 +7,71 @@
     <title>Register - Activity 3</title>
 </head>
 <body>
-    <nav container="nav-container">
-        <div class="nav-inner">
-            <div class="left-col">
-                <img alt="Medicall Logo" src="">
-                <span> Medicall</span>
-            </div>
-            <div class="right-col">
-                <ul>
-                    <a class="" href="index.html"><li>Home</li></a>
-                    <a class="" href="equipments.html"><li>Equipments</li></a>
-                    <a class="" href="index.html"><li>About Us</li></a>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
     <div class="wrapper">
-        <div class="form-container">
-            <form action="POST" class="register">
 
-                <div class="input-container register">
-                    <div class="name-container">
-                        <label for="firstName">First Name</label>
-                        <input type="text" placeholder="Jonathan" name="firstName" required>
+        <nav class="header-navigation">
+            <img src="img/logo-header-dark.svg" class="logo">
+            <ul>
+                <li><a href="index.html" class="">Home</a></li>
+                <li><a href="equipments.html" class="">Equipments</a></li>
+                <li><a href="about.html" class="">About Us</a></li>
+            </ul>
+        </nav>
 
-                        <label for="lastName">Last Name</label>
-                        <input type="text" placeholder="Michaels" name="lastName" required>
+        <div class="content justify-center">
+            <div class="form-container">
+                <form action="POST" class="register">
+                    <div class="form-column">
+                        <div class="input-box">
+                            <label for="fname" class="lbl-mod-1 lbl-short">First Name</label>
+                            <input type="text" id="fname" class="inpt-mod-1 check-valid" required>
+                        </div>
+
+                        <div class="input-box">
+                            <label for="lname" class="lbl-mod-1 lbl-short">Last Name</label>
+                            <input type="text" id="lname" class="inpt-mod-1 check-valid" required>
+                        </div>
                     </div>
 
-                    <label for="uname">Email Address</label>
-                    <input type="text" placeholder="example@gmail.com" name="uname" required>
+                    <label for="email" class="lbl-mod-1">Email Address</label>
+                    <input type="email" id="email" class="inpt-mod-1 check-valid" required>
 
-                    <label for="password">Password</label>
-                    <input type="password" name="password" required>
+                    <label for="password" class="lbl-mod-1">Password</label>
+                    <input type="password" id="password" class="inpt-mod-1 check-valid" required>
+
+                    <label for="birthdate" class="lbl-mod-1">Date of Birth</label>
+                    <input type="date" id="birthdate" class="inpt-mod-1 check-valid" required>
                     
+                    
+                    <div class="radio-box">
+                        <h3>Gender</h3>
+                        <div class="gender-option">
+                            <div class="gender">
+                                <input type="radio" id="check-male" name="gender" checked />
+                                <label for="check-male">Male</label>
+                            </div>
+                            <div class="gender">
+                                <input type="radio" id="check-female" name="gender" />
+                                <label for="check-female">Female</label>
+                            </div>
+                            <div class="gender">
+                                <input type="radio" id="check-other" name="gender" />
+                                <label for="check-other">Others</label>
+                            </div>
+                        </div>
+                    </div>
 
-                    <button class="btn-mod-1 login-submit" type="submit">SIGN UP</button>
-                </div>
-            </form>
+                    <label for="address" class="lbl-mod-1">Address</label>
+                    <input type="text" id="address" class="inpt-mod-1 check-valid" required>
+
+                    <label for="phonenumber" class="lbl-mod-1">Phone Number</label>
+                    <input type="tel" id="phonenumber" class="inpt-mod-1 check-valid" required>
+
+                    <button class="btn-mod-1 raise raise-red" type="submit">Sign Up</button>
+                    <span>Already have an account?<a href="index.html" class="hyp-mod-1">&nbsp; Sign in.</a></span>
+                </form>
+            </div>
         </div>
     </div>
-    
 </body>
 </html>

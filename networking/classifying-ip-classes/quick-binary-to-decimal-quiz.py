@@ -26,6 +26,8 @@ def DecimalToBinary(n):
 def get_input():
     global user_input
     user_input = input("\nEnter Binary Form (with leading zeroes): ")
+    
+
 
 if __name__ == '__main__':
     while True:
@@ -43,8 +45,8 @@ if __name__ == '__main__':
         countdown_thread.join()
         input_thread.join()
         
-        print("Answer:", DecimalToBinary(given_decimal))
-        print("Your input:", user_input)
+        print("Answer:\t\t", DecimalToBinary(given_decimal))
+        print("Your input:\t", user_input)
         
         if DecimalToBinary(given_decimal) == user_input:
             print("CORRECT!")

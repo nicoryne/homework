@@ -42,7 +42,15 @@
                     <label for="birthdate" class="lbl-mod-1">Date of Birth</label>
                     <input type="date" id="birthdate" class="inpt-mod-1 check-valid" required>
                     
-                    
+                    <label for="civilstatus" class="lbl-mod-1">Civil Status</label>
+                    <select id="civilstatus" name="civilstatus" class="inpt-mod-1">
+                        <option value="civil-single">Single</option>
+                        <option value="civil-single">Married</option>
+                        <option value="civil-single">Separated</option>
+                        <option value="civil-single">Divorced</option>
+                        <option value="civil-single">Widowed</option>
+                    </select>
+
                     <div class="radio-box">
                         <h3>Gender</h3>
                         <div class="gender-option">
@@ -66,6 +74,9 @@
 
                     <label for="phonenumber" class="lbl-mod-1">Phone Number</label>
                     <input type="tel" id="phonenumber" class="inpt-mod-1 check-valid" required>
+
+                    <label for="occupation" class="lbl-mod-1">Occupation</label>
+                    <input type="text" id="occupation" class="inpt-mod-1 check-valid" required>
 
                     <button class="btn-mod-1 raise raise-red" type="submit">Sign Up</button>
                     <span>Already have an account?<a href="index.html" class="hyp-mod-1">&nbsp; Sign in.</a></span>

@@ -192,6 +192,7 @@ nav.header-navigation > ul > li > a.active {
 .inpt-mod-1 {
     width: 100%;
     font-family: var(--font);
+    font-size: 0.9em;
     padding: 12px 20px;
     border: 1px solid #ccc;
     border-radius: 5px;

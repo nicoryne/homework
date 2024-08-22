@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  min-height: 100vh;
 }
 
 .App-logo {
@@ -32,6 +33,10 @@
   margin-top: 36px;
   margin-left: 8em;
   margin-right: 8em;
+}
+
+.Speed-dial {
+  display: flex;
 }
 
 @keyframes App-logo-spin {

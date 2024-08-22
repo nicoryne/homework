@@ -19,15 +19,7 @@ export default function ActiveLastBreadcrumb() {
           color="inherit"
           href="/material-ui/getting-started/installation/"
         >
-          Graphics
-        </Link>
-        <Link
-          underline="hover"
-          color="text.primary"
-          href="/material-ui/react-breadcrumbs/"
-          aria-current="page"
-        >
-          Fishes
+          Cartoon Fishes
         </Link>
       </Breadcrumbs>
     </div>

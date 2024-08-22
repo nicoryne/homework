@@ -8,26 +8,32 @@ import IconButton from '@mui/material/IconButton';
 
 export default function ButtonAppBar() {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <img src={process.env.PUBLIC_URL + '/logo192.png'} width="40" height="40" alt="logo"/>
-          </IconButton>
-            <Typography variant="h6" component="div">
-              Nicolo Porter
-            </Typography>
-              <Button color="inherit" sx={{ flexGrow: 1}}></Button>
+    <Box>
+      <AppBar position="static" sx={{ backgroundColor: '#FA8072' }}>
+        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+            <IconButton
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              sx={{ mr: 1 }}
+            >
+              <img src={process.env.PUBLIC_URL + '/fish.svg'} width="40" height="40" alt="logo" />
+            </IconButton>
+            <Box sx={{ display: 'flex', gap: 1 }}>
               <Button color="inherit">Home</Button>
-              <Button color="inherit">Profile</Button>
-              <Button color="inherit">Message</Button>
-              <Button color="inherit">Logout</Button>
+              <Button color="inherit">Species</Button>
+              <Button color="inherit">Locations</Button>
+              <Button color="inherit">FAQs</Button>
+            </Box>
+          </Box>
+          <Typography variant="h5" component="div">
+            Fishclopedia
+          </Typography>
+          <Typography variant="h6" component="div">
+            Nicolo Porter
+          </Typography>
         </Toolbar>
       </AppBar>
     </Box>

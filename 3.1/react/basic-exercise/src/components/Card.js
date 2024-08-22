@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 
 export default function MediaCard() {
   return (
-    <Card sx={{ maxWidth: 300 }}>
+    <Card sx={{ maxWidth: 400 }}>
       <CardMedia
         sx={{ height: 86 }}
         image={process.env.PUBLIC_URL + '/nemo.jpeg'}
@@ -23,7 +23,7 @@ export default function MediaCard() {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
+        <Button size="small">Catch Fish</Button>
         <Button size="small">Learn More</Button>
       </CardActions>
     </Card>

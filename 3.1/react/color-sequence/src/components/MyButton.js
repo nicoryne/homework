@@ -1,7 +1,6 @@
 import * as React from "react";
 import { experimentalStyled as styled } from "@mui/material/styles";
 import { Button } from "@mui/material";
-import colors from "../constants/colors";
 
 const theme = {
   color: {
@@ -10,11 +9,11 @@ const theme = {
   },
 };
 
-const Item = styled(Button)(({ bgColor }) => ({
-  backgroundColor: bgColor,
+const Item = styled(Button)(({ bgcolor }) => ({
+  backgroundColor: bgcolor,
   ":hover": {
     boxShadow: "0px 3px 40px rgba(0, 0, 0, 0.3)",
-    backgroundColor: theme.color.hover
+    backgroundColor: theme.color.hover,
   },
   boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.25)",
   height: 120,
@@ -22,8 +21,8 @@ const Item = styled(Button)(({ bgColor }) => ({
   borderRadius: 6,
 }));
 
-export default function MyButton({ colorIndex, onClick, pressed }) {
+export default function MyButton({ colorIndex, onClick, pressed, colors }) {
   const currentColor = pressed ? colors[colorIndex] : theme.color.default;
 
-  return <Item onClick={onClick} bgColor={currentColor} />;
+  return <Item onClick={onClick} bgcolor={currentColor} />;
 }

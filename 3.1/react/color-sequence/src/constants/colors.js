@@ -1,4 +1,4 @@
-export const colors = [
+const initialColors = [
     "#B3D9FF",  // Light Blue
     "#FFB3E6",  // Light Pink
     "#C1C1C1",  // Light Gray
@@ -10,4 +10,4 @@ export const colors = [
     "#F2F2F2"   // Very Light Gray
 ];
 
-export default colors;
+export default initialColors;

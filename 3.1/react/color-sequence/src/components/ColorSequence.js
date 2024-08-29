@@ -1,6 +1,5 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import { colors } from "../constants/colors";
 
 /**
  *  Linear grid with colored boxes that showcases the color sequence
@@ -8,7 +7,7 @@ import { colors } from "../constants/colors";
  * @returns {React.Component}
  */
 
-export default function ColorSequence() {
+export default function ColorSequence({ colors }) {
   return (
     <Box display="flex" mt={15} mb={4}>
       {colors.map((color, index) => (

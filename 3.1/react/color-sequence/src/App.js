@@ -1,17 +1,15 @@
-import './App.css';
-import ButtonPanel from './components/ButtonPanel';
-import ColorSequence from './components/ColorSequence';
+import "./styles/App.css";
+import ButtonPanel from "./components/ButtonPanel";
+import ColorSequence from "./components/ColorSequence";
 
 function App() {
   return (
     <>
-
       <ColorSequence />
-      
-      <ButtonPanel />
 
+      <ButtonPanel />
     </>
   );
 }
 
-export default App; 
+export default App;

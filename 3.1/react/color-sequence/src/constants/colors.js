@@ -1,13 +1,13 @@
 export const colors = [
-    "#f331e7",      // hot pink
-    "#4461dd",      // royal blue
-    "#e6184b",      // red
-    "#f78237",      // orange
-    "#44d2f4",      // cyan
-    "#38b74b",      // green
-    "#c0ef46",      // lime
-    "#fee11c",      // yellow
-    "#921cb4"       // purple
-]
+    "#B3D9FF",  // Light Blue
+    "#FFB3E6",  // Light Pink
+    "#C1C1C1",  // Light Gray
+    "#E0F7FA",  // Pale Cyan
+    "#F5B7B1",  // Soft Peach
+    "#A3D9FF",  // Sky Blue
+    "#FDE3E4",  // Blush Pink
+    "#D0E9F8",  // Light Ice Blue
+    "#F2F2F2"   // Very Light Gray
+];
 
-export default colors
+export default colors;

@@ -4,9 +4,12 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.g1appdev.Moodel.entity.Course;
 import com.g1appdev.Moodel.entity.Teacher;
+import com.g1appdev.Moodel.respository.CourseRepo;
 import com.g1appdev.Moodel.respository.TeacherRepo;
 
 @Service
@@ -14,6 +17,9 @@ public class TeacherService {
     
     @Autowired
     TeacherRepo trepo;
+
+    @Autowired
+    CourseRepo crepo;
 
     public TeacherService() {
         super();
@@ -46,11 +52,25 @@ public class TeacherService {
             teacher.setPhoneNumber(newTeacherDetails.getPhoneNumber());
             teacher.setHireDate(newTeacherDetails.getHireDate());
         } catch (NoSuchElementException e) {
-            throw new NoSuchElementException("Teacher " + id + "not found");
+            throw new NoSuchElementException("Teacher " + id + " not found");
         } finally {
             return trepo.save(teacher);
         }
     }
+
+    public Teacher addCourse(int teacherId, int courseId) {
+        Teacher teacher = trepo.findById(teacherId)
+            .orElseThrow(() -> new NoSuchElementException("Teacher not found"));
+        Course course = crepo.findById(courseId)
+            .orElseThrow(() -> new NoSuchElementException("Course not found"));
+        
+        teacher.getCourses().add(course);
+
+        trepo.save(teacher);
+    
+        return  teacher;
+    }
+    
 
     // DELETE
     public String deleteTeacher(int id) {

@@ -1,18 +1,29 @@
 package com.g1appdev.Moodel.entity;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Table;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 
 @Entity
+@Table(name="teachers")
 public class Teacher {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int teacherid;
 
     private String lname;
     private String fname;
@@ -22,6 +33,15 @@ public class Teacher {
     private String email;
     private String phoneNumber;
     private Date hireDate;
+
+    @ManyToMany
+    @JoinTable (
+        name = "teachercourseownership",
+        joinColumns = @JoinColumn(name = "teacherid"),
+        inverseJoinColumns = @JoinColumn(name = "courseid")
+    )
+    @JsonManagedReference
+    private Set<Course> coursesOwned;
 
     public Teacher() {
         
@@ -35,10 +55,15 @@ public class Teacher {
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.hireDate = hireDate;
+        this.coursesOwned = new HashSet<>();
+    }
+    
+    public Set<Course> getCourses() {
+        return coursesOwned;
     }
 
-    public int getId() {
-        return this.id;
+    public int getTeacherId() {
+        return this.teacherid;
     }
 
     public String getLname() {

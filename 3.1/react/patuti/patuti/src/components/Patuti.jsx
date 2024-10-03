@@ -55,6 +55,8 @@ export default function Patuti() {
     top: 200,
     left: 550,
   });
+  const [keyPressed, setKeyPressed] = React.useState(false);
+
 
   const currentIndexRef = React.useState(currentIndex);
   currentIndexRef.current = currentIndex;
@@ -90,15 +92,22 @@ export default function Patuti() {
         break;
       case "a" || "A":
         setPatutiList(leftList);
-        setPositionOffset((prev) => ({ ...prev, left: prev.left - 10 }));
+        setPositionOffset((prev) => ({ ...prev, left: prev. left - 10 }));
         break;
       case "w" || "W":
         setPatutiList(jumpList);
-        setPositionOffset((prev) => ({ ...prev, top: prev.top - 10 }));
+
+        setPositionOffset((prev) => ({ ...prev, top: prev.top - 50 }));
+        setTimeout(() => {
+          setPositionOffset((prev) => ({ ...prev, top: prev.top + 50 }));
+        }, 300);
         break;
       case "s" || "S":
         setPatutiList(dockList);
         setPositionOffset((prev) => ({ ...prev, top: prev.top + 10 }));
+        setTimeout(() => {
+          setPositionOffset((prev) => ({ ...prev, top: prev.top - 10 }));
+        }, 300);
         break;
       default:
         setPatutiList(idleList);

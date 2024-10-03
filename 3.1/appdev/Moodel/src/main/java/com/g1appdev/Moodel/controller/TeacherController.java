@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.g1appdev.Moodel.entity.Teacher;
@@ -43,9 +44,14 @@ public class TeacherController {
     }
 
     // UPDATE
-    @PutMapping("/putTeacherDetails/{id}")
-    public Teacher putTeacherDetails (@PathVariable int id, @RequestBody Teacher newTeacher) {
+    @PutMapping("/putTeacherDetails")
+    public Teacher putTeacherDetails (@RequestParam int id, @RequestBody Teacher newTeacher) {
         return tserv.putTeacherDetails(id, newTeacher);
+    }
+
+    @PutMapping("/putCourseToTeacher")
+    public Teacher putMethodName(@RequestParam int teacherId, @RequestParam int courseId) {
+        return tserv.addCourse(teacherId, courseId);
     }
     
 

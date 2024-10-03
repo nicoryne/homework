@@ -1,0 +1,30 @@
+
+{% extends "master.html" %}
+
+{% block title %}
+    Posts - List of Posts
+{% endblock %}
+
+{% block content %}
+<h1>Post List</h1>
+
+<div class="post-list_create-post__container">
+    <a href="/post_create" class="post-list_create-post__link">
+        <div class="post-list_create-post__icon">+</div>
+        <span>Create a Post</span>
+    </a>
+</div>
+
+<ul class="posts">
+    {% for x in myposts %}
+        <li class="post__container">
+                <div class="post__heading">
+                    <h2>{{x.title}}</h2>
+                    <span class="post__created-at">Created at {{x.created_at}}</span>
+                </div>
+                <p class="post__content">{{x.content}}</p>
+            <span class="post__updated-at">Updated at {{x.updated_at}}</span>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

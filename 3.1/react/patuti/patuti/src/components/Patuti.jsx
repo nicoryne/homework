@@ -272,30 +272,6 @@ export default function Patuti() {
   };
 
   /**
-   * Patuti List Handler and Iteration
-   */
-  React.useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => {
-        if (isDucking) {
-          return patutiList.length - 1;
-        }
-
-        const newIndex = (prevIndex + 1) % patutiList.length;
-
-        if (patutiList !== idleList && newIndex === 0) {
-          setPatutiList(idleList);
-          return 0;
-        }
-
-        return newIndex;
-      });
-    }, 50);
-
-    return () => clearInterval(interval);
-  }, [patutiList, isDucking]);
-
-  /**
    * Key Press Function
    */
   const handleKeyDown = React.useCallback(

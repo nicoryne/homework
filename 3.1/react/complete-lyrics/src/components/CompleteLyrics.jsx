@@ -1,89 +1,110 @@
 import { Box, Stack, TextField, Button } from "@mui/material";
-import {
-  BrowserRouter,
-  Route,
-  Routes,
-  useNavigate,
-  Navigate,
-} from "react-router-dom";
-import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 class Lyric {
-  constructor(content, color) {
+  constructor(content, singer, index) {
     this.content = content;
-    this.color = color;
+    this.singer = singer;
+    this.index = index;
   }
 }
 
 class Singer {
-  constructor(name, color, path) {
+  constructor(name, bgcolor, color, path) {
     this.name = name;
+    this.bgcolor = bgcolor;
     this.color = color;
-    this.isSelected = false;
     this.path = path;
-  }
-
-  select() {
-    this.isSelected = true ? !this.isSelected : this.isSelected;
-  }
-
-  unselect() {
-    this.isSelected = false ? this.isSelected : !this.isSelected;
   }
 }
 
-const lyricBox = (lyrics, color) => {
-  return (
-    <Box
-      sx={{
-        backgroundColor: color,
-        color: "gray",
-        textAlign: "left",
-        px: 2,
-        py: 1,
-        borderRadius: 1,
-      }}
-    >
-      {lyrics}
-    </Box>
-  );
-};
-
 export default function CompleteLyrics() {
   const [activeLyrics, setActiveLyrics] = useState([]);
-  const [inputLyric, setInputLyric] = useState("");
-  const [activeSinger, setActiveSinger] = useState(new Singer());
+  const [textInput, setTextInput] = useState("");
+  const [activeSinger, setActiveSinger] = useState(undefined);
+  const [textInputHidden, setTextInputHidden] = useState("none");
   const navigate = useNavigate();
 
   var singerList = [
-    new Singer("First Singer", "#B7E0FF", "/first"),
-    new Singer("Second Singer", "#FFF5CD", "/second"),
-    new Singer("Third Singer", "#FFCFB3", "/third"),
-    new Singer("Fourth Singer", "#E78F81", "/fourth"),
+    new Singer("First Singer", "#B7E0FF", "#5391CD", "/first"),
+    new Singer("Second Singer", "#FFF5CD", "#D1B55A", "/second"),
+    new Singer("Third Singer", "#FFCFB3", "#D19773", "/third"),
+    new Singer("Fourth Singer", "#E78F81", "#C16455", "/fourth"),
   ];
 
-  let handleSingerButtonOnClick = (singer) => {
-    console.log('test');
+  const deleteLyric = (index) => {
+    if (index < -1) {
+      return;
+    }
+
+    setActiveLyrics((activeLyrics) =>
+      activeLyrics.filter((s, i) => i !== index)
+    );
   };
 
-  let handleLyricTextInput = (e) => {
-    console.log(e.target.value);
-  }
+  const lyricBox = (lyrics, singer, index) => {
+    return (
+      <Box
+        key={index}
+        sx={{
+          backgroundColor: singer.bgcolor,
+          color: singer.color,
+          textAlign: "left",
+          overflow: "auto",
+          maxWidth: "43em",
+          px: 4,
+          py: 2,
+          borderRadius: 1,
+          borderLeft: `5px solid ${singer.color}`,
+          display: "flex",
+          justifyContent: "space-between",
+          alignContent: "center",
+          alignItems: "center",
+        }}
+      >
+        {lyrics}
+        <Button onClick={() => deleteLyric(index)} sx={{ fontWeight: "bold", color: singer.color}}>
+          X
+        </Button>
+      </Box>
+    );
+  };
 
-  React.useEffect(() => {
-    console.log('tea')
-  }, [handleSingerButtonOnClick])
+  let handleLyricTextInput = () => {
+    if (activeSinger === undefined) {
+      return;
+    }
 
+    if (textInput === "") {
+      return;
+    }
+
+    let newLyric = new Lyric(textInput, activeSinger);
+    setActiveLyrics((prevLyrics) => [...prevLyrics, newLyric]);
+    setTextInput("");
+  };
+
+  useEffect(() => {
+    if (activeSinger === undefined) {
+      return;
+    }
+
+    setTextInputHidden("flex");
+    navigate(`/singer${activeSinger.path}`);
+  }, [activeSinger, navigate, setTextInputHidden]);
 
   return (
     <Box
       sx={{
         display: "flex",
-        width: "100vw",
-        height: "100vh",
+        width: "100%",
+        minHeight: "100vh",
+        height: "100%",
         justifyContent: "center",
         textAlign: "center",
-        color: "black",
+        color: "white",
+        backgroundColor: "#121212",
       }}
     >
       <Stack>
@@ -95,13 +116,14 @@ export default function CompleteLyrics() {
           {singerList.map((singer, index) => (
             <Button
               sx={{
-                color: "white",
-                backgroundColor: singer.color,
+                backgroundColor: singer.bgcolor,
+                color: singer.color,
                 px: 4,
                 py: 2,
                 width: "14em",
+                fontWeight: "bold",
               }}
-              onClick={handleSingerButtonOnClick(singer)}
+              onClick={() => setActiveSinger(singer)}
             >
               {singer.name}
             </Button>
@@ -115,9 +137,32 @@ export default function CompleteLyrics() {
               handleLyricTextInput(e);
             }
           }}
+          onChange={(e) => setTextInput(e.target.value)}
+          value={textInput}
           label="Enter lyrics"
           variant="outlined"
-          sx={{ mt: 2 }}
+          sx={{
+            display: textInputHidden,
+            mt: 2,
+            input: { color: "#E0E0E0" },
+            "& .MuiOutlinedInput-root": {
+              "& fieldset": {
+                borderColor: "#1E1E1E",
+              },
+              "&:hover fieldset": {
+                borderColor: "#E0E0E0",
+              },
+              "&.Mui-focused fieldset": {
+                borderColor: "#E0E0E0",
+              },
+            },
+            "& .MuiInputLabel-root": {
+              color: "#E0E0E0",
+            },
+            "& .MuiInputLabel-root.Mui-focused": {
+              color: "#E0E0E0",
+            },
+          }}
         />
 
         {/* Box to Hold the Lyrics */}
@@ -125,18 +170,19 @@ export default function CompleteLyrics() {
           sx={{
             direction: "row",
             maxWidth: "relative",
-            height: "100vh",
-            boxShadow: 1,
+            height: "100%",
+            boxShadow: 4,
             border: 1,
-            borderColor: "white",
+            borderColor: "transparent",
+            backgroundColor: "#1E1E1E",
             borderRadius: 2,
             my: 2,
-            p: 1,
+            p: 4,
           }}
+          spacing={2}
         >
-          {lyricBox("Test lyrics", singerList[0].color)}
           {activeLyrics.map((lyric, index) => {
-            lyricBox(lyric.content, lyric.color);
+            return lyricBox(lyric.content, lyric.singer, index);
           })}
         </Stack>
       </Stack>

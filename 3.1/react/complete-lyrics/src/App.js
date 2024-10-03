@@ -15,6 +15,7 @@ function App() {
           <Route path="/">
             <Route path="" element={<Navigate replace to="singer" />} />
             <Route path="singer" element={<CompleteLyrics />} />
+            <Route path="singer/*" element={<CompleteLyrics/>} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -1,0 +1,10 @@
+name: employment-to-population-app
+title:
+username: nicoryne
+account: nicoryne
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 12932556
+bundleId: 9188956
+url: https://nicoryne.shinyapps.io/employment-to-population-app/
+version: 1
